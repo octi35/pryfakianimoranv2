@@ -4,9 +4,18 @@
 
 async function obtenerCanchas() {
     try {
-        // Usamos la API de solo lectura para la web pública
-        const respuesta = await fetch('/api/web/canchas')
-        const canchas = await respuesta.json()
+        let canchas = []
+
+        // Si existe `supabaseClient` (deploy en Supabase Static), usarlo
+        if (typeof window !== 'undefined' && window.supabaseClient) {
+            const { data, error } = await window.supabaseClient.from('canchas').select('*')
+            if (error) throw error
+            canchas = data
+        } else {
+            // Fallback: consumir la API del backend
+            const respuesta = await fetch('/api/web/canchas')
+            canchas = await respuesta.json()
+        }
 
         const contenedor = document.getElementById('contenedor-canchas')
         contenedor.innerHTML = ''
