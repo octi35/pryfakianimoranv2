@@ -1,6 +1,11 @@
+// Script de la página pública de canchas.
+// Consume la API de solo lectura (/api/web/canchas) para mostrar
+// las canchas disponibles a los visitantes del sitio.
+
 async function obtenerCanchas() {
     try {
-        const respuesta = await fetch('/canchas')
+        // Usamos la API de solo lectura para la web pública
+        const respuesta = await fetch('/api/web/canchas')
         const canchas = await respuesta.json()
 
         const contenedor = document.getElementById('contenedor-canchas')

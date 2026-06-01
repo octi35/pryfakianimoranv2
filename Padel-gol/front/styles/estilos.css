@@ -223,3 +223,227 @@ footer {
     font-size: 0.82rem;
     margin-top: 55px;
 }
+
+/* ── Panel de Administración ─────────────────────────────────────────────── */
+
+/* Link de admin en la nav con estilo diferenciado */
+.nav-admin {
+    color: #ff9800 !important;
+    font-weight: bold;
+    border-bottom-color: #ff9800 !important;
+}
+
+/* Sección del formulario */
+.admin-form-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 28px 30px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 35px;
+    border-top: 4px solid #ff9800;
+}
+
+.admin-form-section h3,
+.admin-tabla-section h3 {
+    color: #3a0070;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Formulario de alta/modificación */
+.admin-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* El checkbox ocupa solo una columna pero se alinea diferente */
+.form-grupo-check {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    align-self: end;
+    padding-bottom: 8px;
+}
+
+.form-grupo label {
+    font-size: 0.88rem;
+    color: #444;
+    font-weight: 600;
+}
+
+.form-grupo input[type="text"],
+.form-grupo input[type="number"],
+.form-grupo select {
+    padding: 9px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+    background-color: #fafafa;
+}
+
+.form-grupo input:focus,
+.form-grupo select:focus {
+    outline: none;
+    border-color: #6a1aaa;
+    background-color: white;
+}
+
+.form-grupo input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #3a0070;
+    cursor: pointer;
+}
+
+/* Botones del formulario - ocupa las 2 columnas */
+.form-botones {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.btn-admin {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-guardar {
+    background-color: #3a0070;
+    color: white;
+}
+
+.btn-guardar:hover {
+    background-color: #6a1aaa;
+}
+
+.btn-cancelar {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.btn-cancelar:hover {
+    background-color: #bdbdbd;
+}
+
+/* Mensaje de feedback (éxito/error) debajo del formulario */
+.mensaje-form {
+    margin-top: 14px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.mensaje-exito {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-left: 4px solid #43a047;
+}
+
+.mensaje-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border-left: 4px solid #e53935;
+}
+
+/* Tabla de canchas */
+.admin-tabla-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 28px 30px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;  /* scroll horizontal en pantallas chicas */
+}
+
+.admin-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.admin-tabla thead {
+    background-color: #3a0070;
+    color: white;
+}
+
+.admin-tabla th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.admin-tabla td {
+    padding: 11px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+}
+
+.admin-tabla tbody tr:hover {
+    background-color: #f5f0ff;
+}
+
+.td-acciones {
+    display: flex;
+    gap: 8px;
+}
+
+/* Botones de acción dentro de la tabla */
+.btn-accion {
+    padding: 5px 14px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.82rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-editar {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #e08800;
+}
+
+.btn-eliminar {
+    background-color: #e53935;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #b71c1c;
+}
+
+/* Mensajes de estado dentro de la tabla */
+.sin-datos,
+.error-carga {
+    color: #666;
+    font-style: italic;
+    padding: 8px 0;
+}
+
+/* Responsivo: en pantallas chicas el formulario pasa a 1 columna */
+@media (max-width: 640px) {
+    .admin-form {
+        grid-template-columns: 1fr;
+    }
+}
